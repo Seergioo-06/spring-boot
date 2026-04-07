@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tr="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>listado</title>
+</head>
+<body>
+<h1>Listado de personas</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Precipitación</th>
+        <th>Temperatura</th>
+        <th>alerta_UV</th>
+        <th>Fecha</th>
+        <th>imagen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s : ${semana}">
+        <td th:int="${s != null ? s.precipitacion : 'Sin nombre'}"></td>
+        <td th:int="${s !=null ? s.temperatura : 'Sin apellido'}"></td>
+        <td th:int="${s !=null ? s.alerta_UV : 'Sin fecha'}"></td>
+        <td th:int="${s !=null ? s.fecha :'Sin papeles'}"></td>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/">Volver al inicio</a>
+</body>
+</html>

@@ -16,14 +16,14 @@ public class diaService {
     public List<dia> ObtenerSemana() {
         List<dia> semana = new ArrayList<>();
         LocalDate hoy = LocalDate.now();
-        for(int i=0; i< 7; i++){
+        for(int i=0; i < 7; i++) { // Siete días desde hoy
             LocalDate fecha = hoy.plusDays(i);
-            int precipitacion = random.nextInt(101);
-            int temperatura = 10 + random.nextInt(11);
-            int alerta_UV = random.nextInt(6);
+            int precipitacion = random.nextInt(101); // 0% a 100%
+            int tempMin = random.nextInt(11); // 0 a 10
+            int tempMax = 10 + random.nextInt(11); // 10 a 20
+            int alerta_UV = random.nextInt(6); // 0 a 5
 
-            dia dia = new dia(precipitacion, temperatura, alerta_UV,  fecha);
-            semana.add(dia);
+            semana.add(new dia(precipitacion, tempMin, tempMax, alerta_UV, fecha));
         }
         return semana;
     }

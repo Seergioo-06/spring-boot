@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+ <h1 th:text="${mensaje}"></h1>
+    <nav>
+        <ul>
+            <li><a href="/personas/listado">Ver listado de personas</a></li>
+            <li><a href="/personas/una">Ver una persona aleatoria</a></li>
+            <li><a href="/personas/prediccion">ver prediccion del tiempo</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

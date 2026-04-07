@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tr="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>listado</title>
+</head>
+<body>
+<h1>Listado de personas</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th th:each="d : ${semana}" th:text="${#temporals.format(d.fecha, 'EEEE dd/MM')}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:each="d : ${semana}" style="text-align: center; padding: 10px;">
+            <img th:if="${d.precipitacion < 25}" src="https://www.aemet.es/imagenes/png/estado_cielo/11_g.png">
+            <img th:if="${d.precipitacion >= 25 && d.precipitacion < 50}" src="https://www.aemet.es/imagenes/png/estado_cielo/12_g.png">
+            <img th:if="${d.precipitacion >= 50 && d.precipitacion < 75}" src="https://www.aemet.es/imagenes/png/estado_cielo/14_g.png">
+            <img th:if="${d.precipitacion >= 75}" src="https://www.aemet.es/imagenes/png/estado_cielo/25_g.png">
+
+            <p>Prob. Precipitación: <b th:text="${d.precipitacion} + '%'"></b></p>
+
+            <p>Temp: <span style="color:red" th:text="${d.tempMax}"></span>º /
+                <span style="color:blue" th:text="${d.tempMin}"></span>º</p>
+
+            <p>UV:
+                <span th:text="${d.alerta_UV}"
+                      th:class="${d.alerta_UV <= 1 ? 'verde' : (d.alerta_UV <= 3 ? 'naranja' : 'rojo')}"
+                      th:style="${d.alerta_UV <= 1 ? 'background-color:green; color:white; padding:2px;' :
+                                    (d.alerta_UV <= 3 ? 'background-color:orange; padding:2px;' : 'background-color:red; color:white; padding:2px;')}">
+                    </span>
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/">Volver al inicio</a>
+</body>
+</html>

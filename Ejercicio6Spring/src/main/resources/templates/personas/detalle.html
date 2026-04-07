@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>>
+    <meta charset="UTF-8">
+    <title>detalle</title>
+</head>
+<body>
+<h1>Detalles de Persona</h1>
+<p><strong>Nombre:</strong> <span th:text="${persona.nombre}"></span></p>
+<p><strong>Apellidos:</strong> <span th:text="${persona.apellido}"></span></p>
+<p><strong>Fecha de Nacimiento:</strong><span th:text="${persona.fechaNacimiento}"></span></p>
+<p><strong>DNI:</strong> <span th:text="${persona.DNI}"></span></p>
+<p><strong>Edad:</strong> <span th:text="${persona.getEdad()}"></span>años</p>
+
+<a href="/personas/listado">Ver el listado completo</a> |
+<a href="/">Inicio</a>
+</body>
+</html>
